@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/feedback.css' rel="stylesheet" type="text/css">
+  <link href='css/emoji.css' rel="stylesheet" type="text/css">
+<!--
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/add.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+-->
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #ffffff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin-top:60px;max-width: 400px;">
+      <!--<form class="rating">-->
+      <div id="Question1">
+        <div><img src="./img/Q1.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 1</div>มาวัดระดับความเครียดกันว่าอยู่ระดับไหน?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input rating--1" id="rating-1-1" type="radio" value="1" name="survey1"/>
+            <label class="rating__label rating--1" for="rating-1-1"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input rating--2" id="rating-2-1" type="radio" value="2" name="survey1"/>
+            <label class="rating__label rating--2" for="rating-2-1"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input rating--3" id="rating-3-1" type="radio" value="3" name="survey1"/>
+            <label class="rating__label rating--3" for="rating-3-1"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input rating--4" id="rating-4-1" type="radio" value="4" name="survey1"/>
+            <label class="rating__label rating--4" for="rating-4-1"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input rating--5" id="rating-5-1" type="radio" value="5" name="survey1"/>
+            <label class="rating__label rating--5" for="rating-5-1"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion1" style="display: none;margin-top:15px auto;">
+          <center>
+            <div class="feedback">
+              <textarea placeholder="คุณมีความเครียดเรื่องอะไร เล่าให้ฟังได้ไหม?" class="box-textarea" id="feedback1"></textarea>
+            </div>
+            <button id="btn-survey1" class="btn-t1" onclick="GotoPage(2)">ไปคำถามข้อที่ 2/9</button>
+          </center>
+        </div>
+      </div>
+      <!--</form>-->
+
+      <div id="Question2" style="display: none;">
+        <div><img src="./img/Q2.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 2</div>มีความรู้และความเข้าใจระบบงานมากน้อยเพียงใด</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input2 rating--1" id="rating-1-2" type="radio" value="1" name="survey2"/>
+            <label class="rating__label2 rating--1" for="rating-1-2"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input2 rating--2" id="rating-2-2" type="radio" value="2" name="survey2"/>
+            <label class="rating__label2 rating--2" for="rating-2-2"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input2 rating--3" id="rating-3-2" type="radio" value="3" name="survey2"/>
+            <label class="rating__label2 rating--3" for="rating-3-2"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input2 rating--4" id="rating-4-2" type="radio" value="4" name="survey2"/>
+            <label class="rating__label2 rating--4" for="rating-4-2"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input2 rating--5" id="rating-5-2" type="radio" value="5" name="survey2"/>
+            <label class="rating__label2 rating--5" for="rating-5-2"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion2" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="ต้องการอะไรที่จะช่วยสนับสนุน หรือทำให้คุณได้เข้าใจมากยิ่งขึ้น?" class="box-textarea" id="feedback2"></textarea>
+          </div>
+          <button id="btn-survey2" class="btn-t2" onclick="GotoPage(1)">กลับไปข้อที่ 1</button>
+          <button id="btn-survey2" class="btn-t1" onclick="GotoPage(3)">ไปคำถามข้อที่ 3/9</button>
+        </center>
+        </div>
+      </div>
+
+
+      <div id="Question3" style="display: none;">
+        <div><img src="./img/Q3.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 3</div>ผู้บังคับบัญชาหรือเพื่อนร่วมงานช่วยเหลือซึ่งกันและกันในที่ทำงานมากน้อยเพียงใด?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input3 rating--1" id="rating-1-3" type="radio" value="1" name="survey3"/>
+            <label class="rating__label3 rating--1" for="rating-1-3"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input3 rating--2" id="rating-2-3" type="radio" value="2" name="survey3"/>
+            <label class="rating__label3 rating--2" for="rating-2-3"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input3 rating--3" id="rating-3-3" type="radio" value="3" name="survey3"/>
+            <label class="rating__label3 rating--3" for="rating-3-3"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input3 rating--4" id="rating-4-3" type="radio" value="4" name="survey3"/>
+            <label class="rating__label3 rating--4" for="rating-4-3"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input3 rating--5" id="rating-5-3" type="radio" value="5" name="survey3"/>
+            <label class="rating__label3 rating--5" for="rating-5-3"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion3" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="คุณมีปัญหากับหัวหน้างาน หรือเพื่อนร่วมงานบอกเราได้นะ?" class="box-textarea" id="feedback3"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(2)">กลับไปข้อที่ 2</button>
+          <button class="btn-t1" onclick="GotoPage(4)">ไปคำถามข้อที่ 4/9</button>
+        </center>
+        </div>
+      </div>
+
+
+      <div id="Question4" style="display: none;">
+        <div><img src="./img/Q4.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 4</div>อยากมาทำงานทุกวันไหม?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input4 rating--1" id="rating-1-4" type="radio" value="1" name="survey4"/>
+            <label class="rating__label4 rating--1" for="rating-1-4"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input4 rating--2" id="rating-2-4" type="radio" value="2" name="survey4"/>
+            <label class="rating__label4 rating--2" for="rating-2-4"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input4 rating--3" id="rating-3-4" type="radio" value="3" name="survey4"/>
+            <label class="rating__label4 rating--3" for="rating-3-4"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input4 rating--4" id="rating-4-4" type="radio" value="4" name="survey4"/>
+            <label class="rating__label4 rating--4" for="rating-4-4"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input4 rating--5" id="rating-5-4" type="radio" value="5" name="survey4"/>
+            <label class="rating__label4 rating--5" for="rating-5-4"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion4" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="คุณมีเหตุผลอะไรที่จะบอกเราเพิ่มเติมไหมว่า ทำไม?" class="box-textarea" id="feedback4"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(3)">กลับไปข้อที่ 3</button>
+          <button class="btn-t1" onclick="GotoPage(5)">ไปคำถามข้อที่ 5/9</button>
+        </center>
+        </div>
+      </div>
+
+
+
+      <div id="Question5" style="display: none;">
+        <div><img src="./img/Q5.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 5</div>ผลตอบแทนในการทำงานเป็นไปตามสิ่งที่คาดหวังมากน้อยเพียงใด?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input5 rating--1" id="rating-1-5" type="radio" value="1" name="survey5"/>
+            <label class="rating__label5 rating--1" for="rating-1-5"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input5 rating--2" id="rating-2-5" type="radio" value="2" name="survey5"/>
+            <label class="rating__label5 rating--2" for="rating-2-5"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input5 rating--3" id="rating-3-5" type="radio" value="3" name="survey5"/>
+            <label class="rating__label5 rating--3" for="rating-3-5"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input5 rating--4" id="rating-4-5" type="radio" value="4" name="survey5"/>
+            <label class="rating__label5 rating--4" for="rating-4-5"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input5 rating--5" id="rating-5-5" type="radio" value="5" name="survey5"/>
+            <label class="rating__label5 rating--5" for="rating-5-5"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion5" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="คุณหากหวังผลตอบแทนไว้อย่างไร บอกเราได้นะ?" class="box-textarea" id="feedback5"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(4)">กลับไปข้อที่ 4</button>
+          <button class="btn-t1" onclick="GotoPage(6)">ไปคำถามข้อที่ 6/9</button>
+        </center>
+        </div>
+      </div>
+
+
+      <div id="Question6" style="display: none;">
+        <div><img src="./img/Q6.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 6</div>จะแนะนำเพื่อนหรือคนรู้จักให้มาทำงานที่ธนาคารหรือไม่?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input6 rating--1" id="rating-1-6" type="radio" value="1" name="survey6"/>
+            <label class="rating__label6 rating--1" for="rating-1-6"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input6 rating--2" id="rating-2-6" type="radio" value="2" name="survey6"/>
+            <label class="rating__label6 rating--2" for="rating-2-6"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input6 rating--3" id="rating-3-6" type="radio" value="3" name="survey6"/>
+            <label class="rating__label6 rating--3" for="rating-3-6"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input6 rating--4" id="rating-4-6" type="radio" value="4" name="survey6"/>
+            <label class="rating__label6 rating--4" for="rating-4-6"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input6 rating--5" id="rating-5-6" type="radio" value="5" name="survey6"/>
+            <label class="rating__label6 rating--5" for="rating-5-6"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion6" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="มีเหตุผลอะไรที่จะบอกให้คนที่รู้จักมาทำงานกับธนาคารของเรา?" class="box-textarea" id="feedback6"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(5)">กลับไปข้อที่ 5</button>
+          <button class="btn-t1" onclick="GotoPage(7)">ไปคำถามข้อที่ 7/9</button>
+        </center>
+        </div>
+      </div>
+
+
+      <div id="Question7" style="display: none;">
+        <div><img src="./img/Q7.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 7</div>คุณรู้สึกว่าผู้บริหารเอาใจใส่ดูแลคุณมากน้อยเพียงใด?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input7 rating--1" id="rating-1-7" type="radio" value="1" name="survey7"/>
+            <label class="rating__label7 rating--1" for="rating-1-7"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input7 rating--2" id="rating-2-7" type="radio" value="2" name="survey7"/>
+            <label class="rating__label7 rating--2" for="rating-2-7"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input7 rating--3" id="rating-3-7" type="radio" value="3" name="survey7"/>
+            <label class="rating__label7 rating--3" for="rating-3-7"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input7 rating--4" id="rating-4-7" type="radio" value="4" name="survey7"/>
+            <label class="rating__label7 rating--4" for="rating-4-7"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input7 rating--5" id="rating-5-7" type="radio" value="5" name="survey7"/>
+            <label class="rating__label7 rating--5" for="rating-5-7"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion7" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="ผู้บริหารหรือหัวหน้างานของคุณเป็นอย่างไรบ้าง บอกเราได้นะ?" class="box-textarea" id="feedback7"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(6)">กลับไปข้อที่ 6</button>
+          <button class="btn-t1" onclick="GotoPage(8)">ไปคำถามข้อที่ 8/9</button>
+        </center>
+        </div>
+      </div>
+
+      <div id="Question8" style="display: none;">
+        <div><img src="./img/Q8.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 8</div>รู้สึกภูมิใจที่ได้ทำงานกับธนาคารมากน้อยเพียงใด?</div>-->
+        <div class="rating__list">
+          <div class="rating__item">
+            <input class="rating__input8 rating--1" id="rating-1-8" type="radio" value="1" name="survey8"/>
+            <label class="rating__label8 rating--1" for="rating-1-8"><i class="em em-angry"></i>
+              <div class="rating_text">แย่มาก</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input8 rating--2" id="rating-2-8" type="radio" value="2" name="survey8"/>
+            <label class="rating__label8 rating--2" for="rating-2-8"><i class="em em-disappointed"></i>
+              <div class="rating_text">แย่</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input8 rating--3" id="rating-3-8" type="radio" value="3" name="survey8"/>
+            <label class="rating__label8 rating--3" for="rating-3-8"><i class="em em-expressionless"></i>
+              <div class="rating_text">ปานกลาง</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input8 rating--4" id="rating-4-8" type="radio" value="4" name="survey8"/>
+            <label class="rating__label8 rating--4" for="rating-4-8"><i class="em em-grinning"></i>
+              <div class="rating_text">ดี</div></label>
+          </div>
+          <div class="rating__item">
+            <input class="rating__input8 rating--5" id="rating-5-8" type="radio" value="5" name="survey8"/>
+            <label class="rating__label8 rating--5" for="rating-5-8"><i class="em em-star-struck"></i>
+              <div class="rating_text">ดีมาก</div></label>
+          </div>
+        </div>
+        <div class="text-select">กดเลือกที่รูปภาพเพื่อประเมินผล</div>
+        <div id="SendQuestion8" style="display: none;margin-top:15px auto;">
+        <center>
+          <div class="feedback">
+            <textarea placeholder="เล่าความภูมิใจที่ธนาคารของเราให้ฟังหน่อยซิ?" class="box-textarea" id="feedback8"></textarea>
+          </div>
+          <button class="btn-t2" onclick="GotoPage(7)">กลับไปข้อที่ 8</button>
+          <button class="btn-t1" onclick="GotoPage(9)">ไปคำถามข้อที่ 9/9</button>
+        </center>
+        </div>
+      </div>
+
+
+      <div id="Question9" style="display: none;">
+        <div><img src="./img/Q9.jpg" style="width:100%; max-width: 320px;"></div>
+        <!--<div class="rating__title"><div class="sub_title">คำถามข้อที่ 9
+          </div>อยากบอกอะไรเพิ่มเติมไหม เพื่อส่งเสียงให้ผู้บริหารรับทราบจะได้ช่วยกันปรับปรุง?</div>-->
+        <div class="clr"></div>
+        <div id="SendQuestion9">
+          <center>
+            <div class="feedback" style="margin-top:25px;">
+              <div class="text-feedback">เลือกหมวดคำถามที่ต้องการจะบอก</div>
+              <div class="input-group">
+                <select id="GroupQid" style="width:100%" required/>
+                  <option></option>
+                  <option value="G1">1. สวัสดิการ ผลตอบแทนและโบนัส</option>
+                  <option value="G2">2. การบริหารงาน</option>
+                  <option value="G3">3. การขายผลิตภัณฑ์  เป้า ยอดและการขายประกันภัย</option>
+                  <option value="G4">4. ระบบงานและเครื่องมือเครื่องใช้</option>
+                  <option value="G5">5. KPI และการวัดผลการปฏิบัติงาน</option>
+                  <option value="G6">6. การอบรมเพื่อเพิ่มความรู้ในการทำงาน</option>
+                  <option value="G7">7. การทำงานร่วมกัน</option>
+                  <option value="G8">8. อัตรากำลัง</option>
+                  <option value="G9">9. สถานการณ์ปัจจุบันเกี่ยวกับ COVID </option>
+                  <option value="G99">10. หมวดอื่น ๆ</option>
+                </select>
+              </div>
+              <div class="text-feedback" style="margin-top:15px;">ข้อความที่ต้องการจะบอก</div>
+              <textarea placeholder="ช่วยส่งเสียงของคุณเข้ามาเยอะ ๆ เพื่อเราจะได้ปรับปรุงให้ดียิ่งขึ้น?" class="box-textarea" id="feedback9" style="height: 150px;"></textarea>
+            </div>
+            <button class="btn-t2" onclick="GotoPage(8)">กลับไปข้อที่ 8</button>
+            <button class="btn-t1" onclick="GotoPage(10)">สรุปประเมินผล</button>
+          </center>
+        </div>
+      </div>
+
+
+      <div id="Question10" style="display: none; margin-top:30px;">
+        <div style="line-height: 1.3; font-weight: 600;color:#0056ff;">สรุปผลการประเมินผล</div>
+        <div class="btn-t3">การวัดอุณหภูมิความสุขในการทำงาน</div>
+        <div id="DisplayRatio" style="margin-bottom: 20px;"></div>
+        <div style="font-size: 11px; color:#ff0000; line-height: 1.2;margin-top:10px; margin-bottom: 15px;">ท่านสามารถปรับ เพิ่ม + (ลด - ) การประเมินผลของท่าน<br>ก่อนที่จะกด "บันทึกรายการ" ด้านล่าง</div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="td-padding" style="width:66%;line-height: 1.3;">ข้อที่ 1<br>มาวัดระดับความเครียดกันว่าอยู่ระดับไหน?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t1_pocet">0</span></td>
+              <td class="td-right" style="width:24%;text-align: center;">
+                <button class="btn" id="t1_minus" onclick="calculate(t1,'minus')">-</button>
+                <button class="btn" id="t1_plus" onclick="calculate(t1,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 2<br>มีความรู้และความเข้าใจระบบงานมากน้อยเพียงใด?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t2_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t2_minus" onclick="calculate(t2,'minus')">-</button>
+                <button class="btn" id="t2_plus" onclick="calculate(t2,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 3<br>ผู้บังคับบัญชาหรือเพื่อนร่วมงานช่วยเหลือซึ่งกันและกันในที่ทำงานมากน้อยเพียงใด?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t3_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t3_minus" onclick="calculate(t3,'minus')">-</button>
+                <button class="btn" id="t3_plus" onclick="calculate(t3,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 4<br>อยากมาทำงานทุกวันไหม?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t4_pocet">0</span></td>
+              <td class="td-right" style="text-align: center;">
+                <button class="btn" id="t4_minus" onclick="calculate(t4,'minus')">-</button>
+                <button class="btn" id="t4_plus" onclick="calculate(t4,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 5<br>ผลตอบแทนในการทำงานเป็นไปตามสิ่งที่คาดหวังมากน้อยเพียงใด?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t5_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t5_minus" onclick="calculate(t5,'minus')">-</button>
+                <button class="btn" id="t5_plus" onclick="calculate(t5,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 6<br>จะแนะนำเพื่อนหรือคนรู้จักให้มาทำงานที่ธนาคารหรือไม่?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t6_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t6_minus" onclick="calculate(t6,'minus')">-</button>
+                <button class="btn" id="t6_plus" onclick="calculate(t6,'plus')">+</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 7<br>คุณรู้สึกว่าผู้บริหารเอาใจใส่ดูแลคุณมากน้อยเพียงใด?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t7_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t7_minus" onclick="calculate(t7,'minus')">-</button>
+                <button class="btn" id="t7_plus" onclick="calculate(t7,'plus')">+</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="td-padding" style="line-height: 1.3;">ข้อที่ 8<br>รู้สึกภูมิใจที่ได้ทำงานกับธนาคารมากน้อยเพียงใด?</td>
+              <td class="td-center td-padding" style="text-align:center;"><span id="t8_pocet">0</span></td>
+              <td class="text-right" style="text-align: center;">
+                <button class="btn" id="t8_minus" onclick="calculate(t8,'minus')">-</button>
+                <button class="btn" id="t8_plus" onclick="calculate(t8,'plus')">+</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+        <button class="btn-t1" onclick="SaveSurvey()">บันทึกรายการ</button>
+
+      </div>
+
+
+    </div>
+    <div class="clr" style="height: 30px;"></div>
+  </main>
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div style="padding:20px;text-align: center;">
+          <div class="btn-t3">ขอขอบคุณสำหรับการตอบแบบสำรวจ</div>
+          <div><img src="./img/thankyou.gif" style="width:280px;margin-top:15px;"></div>
+          <div class="btn-t2" onclick="gotoShowSurvey()">ดูภาพรวมการสำรวจ</div>
+        </div>
+        <div style="height:20px;"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:80px;"></div>
+  </div>
+
+
+  <div style="height:20px;"></div>
+  <script  src="./js/question.js"></script>
+
+</body>
+</html>

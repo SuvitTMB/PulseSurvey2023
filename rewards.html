@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/form.css">
+  <link href='css/feedback.css' rel="stylesheet" type="text/css">
+  -->
+  <link rel='stylesheet' href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css'>
+  <link rel='stylesheet' href='https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css'>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th { 
+      height: 30px;
+    }
+    .td-center {
+      background-color: #ffffff !important; text-align: left !important;
+    }
+    .td-padding {
+      font-size: 11px !important; font-weight: 600 !important; 
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #ffffff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+  <div class="navbar1">
+    <center>
+      <div style="width:330px;">
+      <div class="iconlink" onClick="window.location='index.html';">
+        <div style="width:28px;"><img src="./img/survey.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">หน้าแรก</div>
+      </div>
+      <div class="iconlink" onClick="window.location='showsurvey.html';">
+        <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">ภาพรวม</div>
+      </div>
+      <div class="iconlink" onClick="window.location='rewards.html';" style="background: #002d63;">
+        <div style="width:28px;"><img src="./img/gift.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">รางวัล</div>
+      </div>
+      <div class="iconlink" onClick="window.location='activity.html';">
+        <div style="width:28px;"><img src="./img/rules.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">กิจกรรม</div>
+      </div>
+      </div>
+    </center>
+  </div>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin-top:60px;">
+      <!--<div><img src="./img/PulseSurvey.jpg" style="width:100%; max-width: 350px;"></div>-->
+      <div class="btn-t3" style="cursor: default;">ประกาศรายชื่อผู้ได้รับรางวัลประจำวัน</div>
+      <div style="margin-top:10px;">
+
+        <div class="row-font" style="width:100%; max-width: 300px;margin:auto;">
+          <div class="header-font">เลือกวันที่ต้องการดูรายชื่อผู้รับรางวัล</div>
+          <div id="DisplayMenu"></div>
+<!--
+            <div class="input-group">
+              <select id="ClickMenu" onchange="SelectMeunu()" style="padding: 2px 10px;border-radius: 5px;background: #f1f1f1; cursor: pointer;">
+                  <option value="ALL">ผู้ได้รับรางวัลทั้งหมด</option>
+                  <option value="RH1">Branch Banking Regional Office 1 - RH1</option>
+                  <option value="RH2">Branch Banking Regional Office 2 - RH2</option>
+                  <option value="RH3">Branch Banking Regional Office 3 - RH3</option>
+                  <option value="RH4">Branch Banking Regional Office 4 - RH4</option>
+                  <option value="RH5">Branch Banking Regional Office 5 - RH5</option>
+                  <option value="RH6">Branch Banking Regional Office 6 - RH6</option>
+              </select>
+            </div>
+-->
+        </div>
+      </div>
+
+
+      <div style="width:98%; margin:10px auto;">
+        <table id="ex-table" class="display" style="width:100%;font-size: 11px;color:#444444;text-align: left;">
+          <thead>
+            <tr>
+              <th style="width:13%;">วันที่</th>
+              <th style="width:80%;">รายชื่อผู้ได้รับรางวัล</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+
+
+  <div style="height:20px;"></div>
+
+  <footer class="text-center">
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 70px;"></div>
+  </footer>
+
+
+<script src='https://code.jquery.com/jquery-1.12.3.js'></script>
+<script src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js'></script>
+<script src='https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js'></script>
+<script src='https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js'></script>
+
+<script src="./js/rewards.js"></script>
+</body>
+</html>

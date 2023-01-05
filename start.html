@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    .w3-container, .w3-panel {
+      padding:0px;
+    }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #ffffff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!--
+  <div class="navbar1">
+    <center>
+      <div style="width:330px;">
+      <div class="iconlink" onClick="window.location='home.html';" style="background: #002d63;">
+        <div style="width:28px;"><img src="./img/survey.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">หน้าแรก</div>
+      </div>
+      <div class="iconlink" onClick="window.location='rewards.html';">
+        <div style="width:28px;"><img src="./img/awards.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">รางวัล</div>
+      </div>
+      <div class="iconlink" onClick="window.location='leaderboard.html';">
+        <div style="width:28px;"><img src="./img/leader.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">ตารางผู้นำ</div>
+      </div>
+      <div class="iconlink" onClick="window.location='campaigns.html';">
+        <div style="width:28px;"><img src="./img/rules.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">กิจกรรม</div>
+      </div>
+      </div>
+    </center>
+  </div>
+-->
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin-top:60px;">
+      <div class="box-profile">
+        <div><img src="https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8" class="add-profile" style="margin:-60px auto 20px auto;">
+        <div id="MyProfile"></div>
+      </div>
+      <!--
+      <div><img src="./img/PulseSurvey.jpg" style="width:100%; max-width: 350px;"></div>
+      <div class="btn-survey1">อ่านรายละเอียด<br>แบบสำรวจ</div>
+      <div class="btn-survey" onclick="window.location.href='question.html';">คลิกเพื่อเริ่ม<br>ตอบแบบสำรวจ</div>
+      -->
+    </div>
+  </main>
+
+  <div style="height:20px;"></div>
+  <!--
+  <center>
+    <div class="btn-t1" style="margin-top:20px;" onclick="location.href='introgame.html'">กลับไปเมนูหลัก</div>
+  </center>
+  <div class="clr"></div>
+
+  <div id="id01" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayWB"></div>
+        <div style="height:20px;"></div>
+      </div>
+    </div>
+    <div class="clr" style="height:80px;"></div>
+  </div>
+
+
+  <div id="id02" class="w3-modal w3-animate-opacity">
+    <div class="w3-modal-content w3-card-4" style="background: #fff;">
+      <div class="w3-container" style="min-height:300px;width:100%;text-align:center;">
+        <div id="DisplayGetPoint"></div>
+        <div class="clr" style="height:20px;"></div>
+      </div>
+    </div>
+    <div style="height:80px;"></div>
+  </div>
+
+  <div id="id03" class="w3-modal w3-animate-opacity">
+  </div>
+  -->
+
+
+
+</body>
+</html>

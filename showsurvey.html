@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/add.css' rel="stylesheet" type="text/css">-->
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+  <link href='css/feedback.css' rel="stylesheet" type="text/css">
+  <!--<link href='css/w3.css' rel="stylesheet" type="text/css">-->
+
+
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="js/skill.bars.jquery.js"></script>
+  <link href="css/bar.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+    p { margin:0; }
+  </style>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background-color: #ffffff;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="navbar1">
+    <center>
+      <div style="width:330px;">
+      <div class="iconlink" onClick="window.location='index.html';">
+        <div style="width:28px;"><img src="./img/survey.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">หน้าแรก</div>
+      </div>
+      <div class="iconlink" onClick="window.location='showsurvey.html';" style="background: #002d63;">
+        <div style="width:28px;"><img src="./img/graph.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">ภาพรวม</div>
+      </div>
+      <div class="iconlink" onClick="window.location='activity.html';">
+        <div style="width:28px;"><img src="./img/rules.png" style="width:22px;"></div>
+        <div style="font-size: 11px;">กิจกรรม</div>
+      </div>
+      </div>
+    </center>
+  </div>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <div class="container" style="text-align: center;margin-top:60px;">
+      <div class="btn-t3" style="cursor: default;">ภาพรวมการสำรวจการวัดอุณหูมิความสุข</div>
+      <div style="margin:20px auto;max-width: 270px; width:100%;background-color: #ffff00;">
+        <div class="box-rate"><div class="box-show" id="DisplayTargetSurvey"></div><div class="box-text">จำนวน<br>เป้าหมาย</div></div>
+        <div class="box-rate"><div class="box-show" id="DisplayAllSurvey"></div><div class="box-text">จำนวน<br>ชุดข้อมูล</div></div>
+        <div class="box-rate"><div class="box-show" id="DisplayRatio"></div><div class="box-text">สัดส่วน<br>ต่อเป้าหมาย</div></div>
+      </div>
+      <div class="clr"></div>
+
+      <div style="margin:30px auto;max-width:600px; width:96%">
+
+        <div id="A0" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #d35400;" id="B0"></span>
+          <p class="skillbar-bar" style="background: #e67e22;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A1" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #2980b9;" id="B1"></span>
+          <p class="skillbar-bar" style="background: #3498db;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>
+        <div id="A2" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #0645c1;" id="B2"></span>
+          <p class="skillbar-bar" style="background: #387bff;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>
+        <div id="A3" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #3b4d99;" id="B3"></span>
+          <p class="skillbar-bar" style="background: #5a68a5;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>
+
+        <div id="A4" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #4c0ba1;" id="B4"></span>
+          <p class="skillbar-bar" style="background: #9754f0;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A5" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #05a58a;" id="B5"></span>
+          <p class="skillbar-bar" style="background: #0cd6b4;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A6" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #a19903;" id="B6"></span>
+          <p class="skillbar-bar" style="background: #e4d806;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A7" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #d35400;" id="B7"></span>
+          <p class="skillbar-bar" style="background: #e67e22;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A8" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #c50b55;" id="B8"></span>
+          <p class="skillbar-bar" style="background: #ff3585;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A9" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #9504b2;" id="B9"></span>
+          <p class="skillbar-bar" style="background: #cf1af4;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A10" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #1ea207;" id="B10"></span>
+          <p class="skillbar-bar" style="background: #1fd300;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+        <div id="A11" class="skillbar" data-percent="0">
+          <span class="skillbar-title" style="background: #a20758;" id="B11"></span>
+          <p class="skillbar-bar" style="background: #db4d97;"></p>
+          <span class="skill-bar-percent"></span>
+        </div>       
+      </div>
+      <div style="margin-top:30px;">
+        <div id="DisplayRanking"></div>
+      </div>
+    </div>
+  </main>
+
+
+
+  <div style="height:20px;"></div>
+  <footer class="text-center">
+    <div id="isLoggedIn" style="color:#ffffff;"></div>
+    <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    <div class="footer-main">
+      @<span class="footer-font-green">LINE</span> 
+      <span class="footer-font-navi">Retail</span> 
+      <span class="footer-font-blue">So</span><span class="footer-font-org">ciety</span>
+    </div>
+    <div class="clr" style="height: 70px;"></div>
+  </footer>
+<script src="./js/showsurvey.js"></script>
+
+</body>
+</html>
